@@ -9,11 +9,15 @@
 
 <body>
 
-
-
-
+    <div id="root"></div>
+    
+    <!-- REACTJS (LIB) -> /BIBLIOTECA/MODULO/PACOTE -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
 
     <script>
+
         const { useState } = React
 
         function App() {
@@ -21,26 +25,25 @@
             const [title, setTitle] = useState("Mudando texto e a cor")
 
             function mudarCor() {
-                if (cor == "black") {
+                if (cor === "black") {
                     setTitle("Mudando texto e a cor")
                     setCor("red")
                 } else {
+                    setTitle("Mudar o texto e a cor aqui")
                     setCor("black")
-                    setTitle("Texto mudado e a cor")
-
                 }
             }
 
-            return (
-                <div>
-                    <h1>Estou em ReactJS</h1>
-                    <h3 style={{ color: cor }}>{title}</h3>
-                    <button onClick={mudarCor}>Mudar cor</button>
-                </div>
+            return React.createElement("div", null,
+                React.createElement("h1", null, "Estou em ReactJS"),
+                React.createElement("h3", { style: { color: cor } }, title),
+                React.createElement("button", { onClick: mudarCor }, "Mudar cor"),
             )
         }
 
-        ReactDOM.createRoot(document.getElementById).render(<App />)
+        ReactDOM.createRoot(document.getElementById("root")).render(
+            React.createElement(App)
+        )
 
     </script>
 </body>

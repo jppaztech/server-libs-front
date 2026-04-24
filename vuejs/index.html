@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>Estou em VueJS</h1>
+        <h3 :style="{color: cor}">{{ title }}</h3>
+        <button @click="mudarCor()">Mudar cor</button>
+    </div>
+
+
+
+
+    <!-- VUEJS (LIB) -> /BIBLIOTECA/MODULO/PACOTE -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    cor: "black",
+                    title: "Mudar a cor e o texto aqui"
+                }
+            },
+            methods: {
+                mudarCor(){
+                    if(this.cor === "black"){
+                        this.cor = "red"
+                        this.title = "Mudando a cor e o texto"
+                    }else{
+                        this.cor = "black"
+                        this.title = "Mudar a cor e o texto aqui"
+                    }
+                }
+            }
+        }).mount("#app")
+
+    </script>
+</body>
+
+</html>
