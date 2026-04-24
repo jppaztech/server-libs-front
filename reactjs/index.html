@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="meuApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+</head>
+
+<body>
+
+
+
+
+
+    <script>
+        const { useState } = React
+
+        function App() {
+            const [cor, setCor] = useState("black")
+            const [title, setTitle] = useState("Mudando texto e a cor")
+
+            function mudarCor() {
+                if (cor == "black") {
+                    setTitle("Mudando texto e a cor")
+                    setCor("red")
+                } else {
+                    setCor("black")
+                    setTitle("Texto mudado e a cor")
+
+                }
+            }
+
+            return (
+                <div>
+                    <h1>Estou em ReactJS</h1>
+                    <h3 style={{ color: cor }}>{title}</h3>
+                    <button onClick={mudarCor}>Mudar cor</button>
+                </div>
+            )
+        }
+
+        ReactDOM.createRoot(document.getElementById).render(<App />)
+
+    </script>
+</body>
+
+</html>
